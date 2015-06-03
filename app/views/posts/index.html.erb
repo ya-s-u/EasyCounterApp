@@ -1,3 +1,53 @@
+<% if request.smart_phone? %>
+<!-- View for SmartPhone -->
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>カウンターボタン</title>
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport" />
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <style type="text/css">
+  h1 {
+    text-align: center;
+    font-size : 30px;
+  }
+  #button {
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 200px 0;
+    text-align: center;
+    font-size: 40px;
+  }
+  </style>
+</head>
+<body ng-controller="MainCtrl">
+  <h1>カウンターボタン</h1>
+  <p id="button">投票する</p>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#button').click(function() {
+      $.ajax({
+        url: "post",
+        type:'post',
+        xhrFields: {
+          withCredentials: true
+        }
+      }).done(function(data) {
+        console.log(data.status);
+      });
+    });
+  });
+  </script>
+</body>
+</html>
+<!-- end of View for SmartPhone -->
+<% else %>
+<!-- View for PC -->
 <!DOCTYPE html>
 <html ng-app>
 <head>
@@ -20,14 +70,13 @@
   </style>
 </head>
 <body ng-controller="MainCtrl">
-  <h1>カウンター</h1>
+  <h1>カウンターディスプレイ</h1>
   <p id="count">0</p>
 
   <script type="text/javascript">
   $(document).ready(function(){
   	setInterval(function(){
       $.ajax({
-        // url: "https://sample-for-ashley.herokuapp.com/post",
         url: "post",
         type:'get',
         xhrFields: {
@@ -42,3 +91,5 @@
   </script>
 </body>
 </html>
+<!-- end of View for PC -->
+<% end %>
