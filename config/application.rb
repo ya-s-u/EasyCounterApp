@@ -22,7 +22,7 @@ module Sample
 
     config.action_dispatch.default_headers = {
       'Access-Control-Allow-Credentials' => 'true',
-      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Allow-Origin' => 'http://0.0.0.0:3000/',
       'Access-Control-Request-Method' => '*'
     }
   end

@@ -3,17 +3,41 @@
 <head>
   <title>カウンター</title>
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+  <style type="text/css">
+  h1 {
+    text-align: center;
+    font-size : 30px;
+  }
+  #count {
+    font-size: 500px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    margin: 0;
+    line-height: 1em;
+  }
+  </style>
 </head>
 <body ng-controller="MainCtrl">
   <h1>カウンター</h1>
-  <p>{{count}}</p>
+  <p id="count">0</p>
 
   <script type="text/javascript">
   $(document).ready(function(){
-    var url = "https://sample-for-ashley.herokuapp.com/post";
-    var result = jQuery.get(url, function (data) {
-      alert(data);  // dataの型を表示する
-    });
+  	setInterval(function(){
+      $.ajax({
+        // url: "https://sample-for-ashley.herokuapp.com/post",
+        url: "http://0.0.0.0:3000/post",
+        type:'get',
+        xhrFields: {
+          withCredentials: true
+        }
+      }).done(function(data) {
+        console.log(data.count);
+        $("#count").text(data.count);
+      });
+  	},1000);
   });
   </script>
 </body>
