@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   protect_from_forgery except: :post
 
   def index
+    render :layout => false
   end
 
   def get
