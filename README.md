@@ -5,7 +5,6 @@
 git clone https://github.com/ya-s-u/Sample-for-Ashley
 cd Sample-for-Ashley
 bundle install 
-rake db:migrate
 rails s
 ```
 ブラウザから``http://0.0.0.0:3000``にアクセス
