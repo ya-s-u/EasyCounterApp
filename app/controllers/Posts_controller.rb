@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  protect_from_forgery except: :post
 
   def index
   end
@@ -10,7 +11,9 @@ class PostsController < ApplicationController
   end
 
   def post
-    @post = Post.new(type: params[:type])
+    @post = Post.create(type: params[:type])
+    return_arr = {status: "success"}
+    render :json => return_arr
   end
 
 end
