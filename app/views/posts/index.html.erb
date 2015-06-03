@@ -1,1 +1,20 @@
-<h1>hello</h1>
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <title>カウンター</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+  <h1>カウンター</h1>
+  <p>{{count}}</p>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    var url = "https://sample-for-ashley.herokuapp.com/post";
+    var result = jQuery.get(url, function (data) {
+      alert(data);  // dataの型を表示する
+    });
+  });
+  </script>
+</body>
+</html>
