@@ -30,7 +30,12 @@
 
   <script type="text/javascript">
   $(document).ready(function(){
+    color = ["red", "orange", "brown", "blue"];
+    idx = 0;
+
     $('#button').click(function() {
+      $("#button").css("background-color", color[idx++%4]);
+
       $.ajax({
         url: "post",
         type:'post',
