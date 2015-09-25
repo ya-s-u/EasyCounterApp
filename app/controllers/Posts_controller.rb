@@ -17,4 +17,10 @@ class PostsController < ApplicationController
     render :json => return_arr
   end
 
+  def reset
+    @post = Post.delete_all
+    return_arr = {status: "success"}
+    render :json => return_arr
+  end
+
 end
