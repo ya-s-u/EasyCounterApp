@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   # Post
   get 'post' => 'posts#get', as: :get_post
   post 'post' => 'posts#post', as: :post_post
+  get 'reset' => 'posts#reset', as: :reset_post
 
 end
